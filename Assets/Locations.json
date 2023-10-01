@@ -1,0 +1,211 @@
+{
+    "Items": [
+        {
+            "type": [
+                {
+                    "type": "POMZ",
+                    "probability": 35.0
+                },
+                {
+                    "type": "MON-50",
+                    "probability": 45.0
+                },
+                {
+                    "type": "ТМ-62",
+                    "probability": 41.0
+                }
+            ],
+            "latitude": 50.13650131225586,
+            "longitude": 36.2982063293457,
+            "depth": -3.0
+        },
+        {
+            "type": [
+                {
+                    "type": "PFM - 1",
+                    "probability": 2.0
+                }
+            ],
+            "latitude": 50.15690612792969,
+            "longitude": 36.3723258972168,
+            "depth": -3.0
+        },
+        {
+            "type": [
+                {
+                    "type": "POMZ",
+                    "probability": 50.0
+                },
+                {
+                    "type": "ТМ-62",
+                    "probability": 73.0
+                }
+            ],
+            "latitude": 50.15190124511719,
+            "longitude": 36.36313247680664,
+            "depth": -3.0
+        },
+        {
+            "type": [
+                {
+                    "type": "MON-50",
+                    "probability": 93.0
+                }
+            ],
+            "latitude": 50.132049560546878,
+            "longitude": 36.295467376708987,
+            "depth": -2.0
+        },
+        {
+            "type": [
+                {
+                    "type": "MON-50",
+                    "probability": 98.0
+                },
+                {
+                    "type": "PFM - 1",
+                    "probability": 36.0
+                }
+            ],
+            "latitude": 50.154815673828128,
+            "longitude": 36.33449172973633,
+            "depth": -1.0
+        },
+        {
+            "type": [
+                {
+                    "type": "POMZ",
+                    "probability": 74.0
+                }
+            ],
+            "latitude": 50.14158248901367,
+            "longitude": 36.27055740356445,
+            "depth": -1.0
+        },
+        {
+            "type": [
+                {
+                    "type": "PMN",
+                    "probability": 10.0
+                },
+                {
+                    "type": "MON-50",
+                    "probability": 5.0
+                }
+            ],
+            "latitude": 50.15631866455078,
+            "longitude": 36.267059326171878,
+            "depth": -2.0
+        },
+        {
+            "type": [
+                {
+                    "type": "POM-3",
+                    "probability": 68.0
+                },
+                {
+                    "type": "PFM - 1",
+                    "probability": 57.0
+                },
+                {
+                    "type": "ТМ-62",
+                    "probability": 67.0
+                }
+            ],
+            "latitude": 50.1737174987793,
+            "longitude": 36.31114959716797,
+            "depth": -1.0
+        },
+        {
+            "type": [
+                {
+                    "type": "PFM - 1",
+                    "probability": 84.0
+                },
+                {
+                    "type": "ТМ-62",
+                    "probability": 37.0
+                },
+                {
+                    "type": "POMZ",
+                    "probability": 87.0
+                }
+            ],
+            "latitude": 50.1741943359375,
+            "longitude": 36.295406341552737,
+            "depth": -3.0
+        },
+        {
+            "type": [
+                {
+                    "type": "MON-50",
+                    "probability": 84.0
+                },
+                {
+                    "type": "PFM - 1",
+                    "probability": 57.0
+                }
+            ],
+            "latitude": 50.15602111816406,
+            "longitude": 36.30866241455078,
+            "depth": -1.0
+        },
+        {
+            "type": [
+                {
+                    "type": "MON-50",
+                    "probability": 37.0
+                },
+                {
+                    "type": "PFM - 1",
+                    "probability": 67.0
+                },
+                {
+                    "type": "PMN",
+                    "probability": 80.0
+                },
+                {
+                    "type": "ТМ-62",
+                    "probability": 20.0
+                }
+            ],
+            "latitude": 50.15068435668945,
+            "longitude": 36.32353973388672,
+            "depth": -2.0
+        },
+        {
+            "type": [
+                {
+                    "type": "ТМ-62",
+                    "probability": 51.0
+                },
+                {
+                    "type": "MON-50",
+                    "probability": 18.0
+                },
+                {
+                    "type": "PFM - 1",
+                    "probability": 7.0
+                }
+            ],
+            "latitude": 50.1649169921875,
+            "longitude": 36.34128952026367,
+            "depth": -1.0
+        },
+        {
+            "type": [
+                {
+                    "type": "PMN",
+                    "probability": 89.0
+                },
+                {
+                    "type": "POM-3",
+                    "probability": 46.0
+                }
+            ],
+            "latitude": 50.170806884765628,
+            "longitude": 36.312740325927737,
+            "depth": -2.0
+        }
+    ]
+}
