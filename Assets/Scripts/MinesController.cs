@@ -90,6 +90,3 @@ public class MineProbability
     public string type;
     public float probability;
 }
-
-
-
