@@ -135,8 +135,8 @@ public class MapController : MonoBehaviour
         GameObject[] pointsObjects = GameObject.FindGameObjectsWithTag("Point");
         foreach (GameObject point in pointsObjects)
         {
-            point.transform.GetChild(1).GetComponent<SpriteRenderer>().color = point.GetComponent<NavToGameObject>().standartColor;
-            point.transform.GetChild(2).gameObject.SetActive(false);
+            point.transform.GetChild(0).GetComponent<SpriteRenderer>().color = point.GetComponent<NavToGameObject>().standartColor;
+            point.transform.GetChild(1).gameObject.SetActive(false);
         }
     }
 

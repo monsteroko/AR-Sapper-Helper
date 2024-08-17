@@ -82,6 +82,7 @@ public class UXO
     public float latitude = UnityEngine.Random.Range((float)50.131113, (float)50.178791);
     public float longitude= UnityEngine.Random.Range((float)36.266082, (float)36.379799);
     public float depth = UnityEngine.Random.Range(-3, 0);
+    public float radius = UnityEngine.Random.Range(0.1f, 4.5f);
 }
 
 [Serializable]

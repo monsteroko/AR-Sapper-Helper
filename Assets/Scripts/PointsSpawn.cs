@@ -49,8 +49,10 @@ public class PointsSpawn : MonoBehaviour
         instance.name = "Point " + point.name;
         instance.tag = "Point";
         instance.transform.localPosition = _map.GeoToWorldPosition(pointCoordinates, true);
-        instance.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
-        instance.transform.GetChild(0).gameObject.GetComponent<TextMesh>().text = point.name;
+        instance.transform.localScale = new Vector3(_spawnScale, _spawnScale , _spawnScale);
+        instance.transform.GetChild(3).gameObject.GetComponent<TextMesh>().text = point.name;
+        instance.transform.GetChild(2).localScale = new Vector3(mine.radius, mine.radius, 0.1f);
+        instance.transform.GetChild(2).gameObject.SetActive(true);
         string types="";
         foreach(MineProbability probability in mine.type) 
         {
@@ -59,9 +61,9 @@ public class PointsSpawn : MonoBehaviour
             else
                 types += probability.type + " -> " + probability.probability + "%";
         }
-        instance.transform.GetChild(2).GetChild(0).gameObject.GetComponent<TextMesh>().text = types;
-        instance.transform.GetChild(2).GetChild(1).gameObject.GetComponent<TextMesh>().text = mine.latitude + " " + mine.longitude;
-        instance.transform.GetChild(2).GetChild(2).gameObject.GetComponent<TextMesh>().text = Math.Abs(mine.depth).ToString();
+        instance.transform.GetChild(1).GetChild(0).gameObject.GetComponent<TextMesh>().text = types;
+        instance.transform.GetChild(1).GetChild(1).gameObject.GetComponent<TextMesh>().text = mine.latitude + " " + mine.longitude;
+        instance.transform.GetChild(1).GetChild(2).gameObject.GetComponent<TextMesh>().text = Math.Abs(mine.depth).ToString();
         point.pointObject = instance;
         points.Add(point);
         if (points.Count > 0)
@@ -75,6 +77,7 @@ public class PointsSpawn : MonoBehaviour
             foreach (Point p in points)
             {
                 p.pointObject.transform.localPosition = _map.GeoToWorldPosition(p.location, true);
+                p.pointObject.transform.localScale = new Vector3(_spawnScale, _spawnScale , _spawnScale);
             }
         }
     }

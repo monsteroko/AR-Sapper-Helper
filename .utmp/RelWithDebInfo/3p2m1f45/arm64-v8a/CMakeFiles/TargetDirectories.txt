@@ -1,0 +1,5 @@
+C:/Users/OKO/Documents/Projects/AR Sapper Helper/AR-Sapper-Helper/.utmp/RelWithDebInfo/3p2m1f45/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/OKO/Documents/Projects/AR Sapper Helper/AR-Sapper-Helper/.utmp/RelWithDebInfo/3p2m1f45/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/OKO/Documents/Projects/AR Sapper Helper/AR-Sapper-Helper/.utmp/RelWithDebInfo/3p2m1f45/arm64-v8a/FramePacing/CMakeFiles/swappywrapper.dir
+C:/Users/OKO/Documents/Projects/AR Sapper Helper/AR-Sapper-Helper/.utmp/RelWithDebInfo/3p2m1f45/arm64-v8a/FramePacing/CMakeFiles/edit_cache.dir
+C:/Users/OKO/Documents/Projects/AR Sapper Helper/AR-Sapper-Helper/.utmp/RelWithDebInfo/3p2m1f45/arm64-v8a/FramePacing/CMakeFiles/rebuild_cache.dir
