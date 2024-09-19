@@ -18,11 +18,11 @@ public class FocusOnPoint : MonoBehaviour
     public AbstractMap _map;
     public GameObject _player;
 
-    private PointsSpawn PointsSpawn;
+    private minespointsSpawn minespointsSpawn;
 
     private void Start()
     {
-        PointsSpawn = GetComponent<PointsSpawn>();
+        minespointsSpawn = GetComponent<minespointsSpawn>();
     }
 
 
@@ -34,11 +34,11 @@ public class FocusOnPoint : MonoBehaviour
 
     public void FocusAtAll()
     {
-        var x_query = from Point p in PointsSpawn.points select p.location.x;
+        var x_query = from Point p in minespointsSpawn.minespoints select p.location.x;
         double xmin = x_query.Min();
         double xmax = x_query.Max();
 
-        var y_query = from Point p in PointsSpawn.points select p.location.y;
+        var y_query = from Point p in minespointsSpawn.minespoints select p.location.y;
         double ymin = y_query.Min();
         double ymax = y_query.Max();
 

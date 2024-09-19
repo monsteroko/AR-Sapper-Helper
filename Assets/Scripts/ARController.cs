@@ -70,6 +70,6 @@ public class ARController : MonoBehaviour
         player.SetActive(true);
         UICamera.SetActive(true);
         foreach (GameObject point in GameObject.FindGameObjectsWithTag("Point"))
-            point.transform.localScale = new Vector3(MapController.PointsSpawn._spawnScale, MapController.PointsSpawn._spawnScale, MapController.PointsSpawn._spawnScale);
+            point.transform.localScale = new Vector3(MapController.minespointsSpawn._spawnScale, MapController.minespointsSpawn._spawnScale, MapController.minespointsSpawn._spawnScale);
     }
 }

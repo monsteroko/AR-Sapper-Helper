@@ -18,7 +18,7 @@ public class MapController : MonoBehaviour
 
     public UIController UIController;
 
-    public PointsSpawn PointsSpawn;
+    public minespointsSpawn minespointsSpawn;
 
     public FocusOnPoint FocusOnPoint;
 
@@ -38,7 +38,7 @@ public class MapController : MonoBehaviour
 
     private void Start()
     {
-       PointsSpawn = GetComponent<PointsSpawn>();
+       minespointsSpawn = GetComponent<minespointsSpawn>();
        FocusOnPoint = GetComponent<FocusOnPoint>();
     }
 
@@ -76,13 +76,14 @@ public class MapController : MonoBehaviour
         UXOs = minesarray;
         if (Application.internetReachability != NetworkReachability.NotReachable)
         {
-            PointsSpawn.DeleteAllPoints();
+            minespointsSpawn.DeleteAllminespoints();
+            minespointsSpawn.DeleteAllpathpoints();
             StartCoroutine(InitializeMap());
             for (int i = 0; i < minesarray.Length; i++)
             {
-                PointsSpawn.SetMarker(minesarray[i]);
+                minespointsSpawn.SetMine(minesarray[i]);
             }
-            DeletePointsText();
+            DeleteminespointsText();
             FocusOnPoint.FocusAtAll();
         }
     }
@@ -94,7 +95,8 @@ public class MapController : MonoBehaviour
     {
         if (Application.internetReachability != NetworkReachability.NotReachable)
         {
-            PointsSpawn.DeleteAllPoints();
+            minespointsSpawn.DeleteAllminespoints();
+            minespointsSpawn.DeleteAllpathpoints();
             _map.gameObject.SetActive(false);
             player.SetActive(false);
             StopCoroutine(UpdatePosition());
@@ -124,16 +126,17 @@ public class MapController : MonoBehaviour
             _map.Initialize(Berlin, 7);
             _map.gameObject.SetActive(true);
             MineInfo.SetActive(false);
-            PointsSpawn.DeleteAllPoints();
+            minespointsSpawn.DeleteAllminespoints();
+            minespointsSpawn.DeleteAllpathpoints();
             yield return null;
         }
     }
 
-    public void DeletePointsText()
+    public void DeleteminespointsText()
     {
         MineInfo.SetActive(false);
-        GameObject[] pointsObjects = GameObject.FindGameObjectsWithTag("Point");
-        foreach (GameObject point in pointsObjects)
+        GameObject[] minespointsObjects = GameObject.FindGameObjectsWithTag("Point");
+        foreach (GameObject point in minespointsObjects)
         {
             point.transform.GetChild(0).GetComponent<SpriteRenderer>().color = point.GetComponent<NavToGameObject>().standartColor;
             point.transform.GetChild(1).gameObject.SetActive(false);
@@ -174,5 +177,21 @@ public class MapController : MonoBehaviour
             }
             yield return new WaitForSecondsRealtime(15f);
         }
+    }
+
+    public float calculateKilometersFromCoordinates(float lat0, float lon0, float lat1, float lon1)
+    {
+        float R = 6371; // Radius of the earth in km
+        float dLat = (float)(lat0 - lat1) * Mathf.Deg2Rad; // deg2rad below
+        float dLon = (float)(lon0 - lon1) * Mathf.Deg2Rad;
+        float a =
+            Mathf.Sin(dLat / 2) * Mathf.Sin(dLat / 2)
+            + Mathf.Cos(lat1 * Mathf.Deg2Rad)
+                * Mathf.Cos(lat0 * Mathf.Deg2Rad)
+                * Mathf.Sin(dLon / 2)
+                * Mathf.Sin(dLon / 2);
+        float c = 2 * Mathf.Atan2(Mathf.Sqrt(a), Mathf.Sqrt(1 - a));
+        float d = R * c; // Distance in km
+        return d;
     }
 }
