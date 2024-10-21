@@ -45,7 +45,7 @@ public class MinesController : MonoBehaviour
 
     public static UXO[] DataGenerate()
     {
-        UXO[] mines = new UXO[UnityEngine.Random.Range(10, 20)];
+        UXO[] mines = new UXO[UnityEngine.Random.Range(3, 6)];
         for (int i = 0; i < mines.Length; i++)
         {
             UXO mine = new UXO();
@@ -79,10 +79,10 @@ public class MinesController : MonoBehaviour
 public class UXO
 {
     public List<MineProbability> type = new List<MineProbability> ();
-    public float latitude = UnityEngine.Random.Range((float)50.131113, (float)50.178791);
-    public float longitude= UnityEngine.Random.Range((float)36.266082, (float)36.379799);
+    public float latitude = UnityEngine.Random.Range((float)50.14, (float)50.15);
+    public float longitude= UnityEngine.Random.Range((float)36.27, (float)36.30);
     public float depth = UnityEngine.Random.Range(-3, 0);
-    public float radius = UnityEngine.Random.Range(0.1f, 4.5f);
+    public float radius = UnityEngine.Random.Range(50f, 200f);
 }
 
 [Serializable]

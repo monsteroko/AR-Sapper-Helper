@@ -10,6 +10,8 @@ using NUnit.Framework;
 using ARLocation;
 using Unity.VisualScripting;
 using static RouteBuilder;
+using System.Collections;
+using static VoronoiPathFinding;
 
 public class minespointsSpawn : MonoBehaviour
 {
@@ -56,7 +58,7 @@ public class minespointsSpawn : MonoBehaviour
         instance.transform.localPosition = _map.GeoToWorldPosition(pointCoordinates, true);
         instance.transform.localScale = new Vector3((float)0.000002 * (float)Math.Pow(_map.Zoom, 4), (float)0.000002 * (float)Math.Pow(_map.Zoom, 4), (float)0.000002 * (float)Math.Pow(_map.Zoom, 4));
         instance.transform.GetChild(3).gameObject.GetComponent<TextMesh>().text = point.name;
-        instance.transform.GetChild(2).localScale = new Vector3(mine.radius, mine.radius, 0.1f);
+        instance.transform.GetChild(2).localScale = new Vector3(mine.radius / 1000, mine.radius / 1000, 0.1f);
         instance.transform.GetChild(2).gameObject.SetActive(true);
         string types="";
         foreach(MineProbability probability in mine.type) 
@@ -80,44 +82,16 @@ public class minespointsSpawn : MonoBehaviour
         DeleteAllpathpoints();
         pathpoints = new List<Point>();
         MapController.instance.LocationFinder.GetLocation();
-        float latitude = MapController.instance.LocationFinder._latitude;
-        float longitude = MapController.instance.LocationFinder._longitude;
-
-        List<UXO> UXOSortedList = MapController.instance.UXOs.ToList();
-        UXOSortedList.OrderBy(UXO => MapController.instance.calculateKilometersFromCoordinates(MapController.instance.LocationFinder._latitude, MapController.instance.LocationFinder._longitude, UXO.latitude, UXO.longitude)).ToList();
+        //GPSPoint startCoords = new GPSPoint(MapController.instance.LocationFinder._latitude, MapController.instance.LocationFinder._longitude);
+        GPSPoint startCoords = new GPSPoint(50.145,36.265);
         var mines = new List<Mine>();
-        foreach (UXO mine in UXOSortedList)
+        foreach (UXO mine in MapController.instance.UXOs.ToList())
         {
-            mines.Add(new Mine(new MinePoint(mine.latitude, mine.longitude),mine.radius));
+            mines.Add(new Mine(new GPSPoint(mine.latitude, mine.longitude), Math.Round(mine.radius)));
         }
-        var (width, height) = MinefieldDimensions.GetFieldDimensions(mines);
-        var minefield = new Minefield(width, height, mines);
-        var start = new MinePoint(UXOSortedList[0].latitude, UXOSortedList[0].longitude);
-        var end = new MinePoint(UXOSortedList[UXOSortedList.Count-1].latitude, UXOSortedList[UXOSortedList.Count - 1].longitude);
-        List<MinePoint> navData = minefield.FindSafePath(start, end);
-        if (navData != null)
-        {
-            List<Vector2> navCoords = new List<Vector2>();
-            for (int i = 0; i < navData.Count; ++i)
-            {
-                Point point = new Point();
-                var instance = Instantiate(_pathPointPrefab);
-                instance.name = "Path point " + (i).ToString();
-                point.name = instance.name;
-                instance.tag = "PathPoint";
-                Vector2d pointCoordinates = new Vector2d(navData[i].X, navData[i].Y);
-                point.location = pointCoordinates;
-                instance.transform.localPosition = _map.GeoToWorldPosition(pointCoordinates, true);
-                instance.transform.localScale = new Vector3((float)0.000002 * (float)Math.Pow(_map.Zoom, 4), (float)0.000002 * (float)Math.Pow(_map.Zoom, 4), (float)0.000002 * (float)Math.Pow(_map.Zoom, 4));
-                instance.transform.GetChild(1).gameObject.GetComponent<TextMesh>().text = (i).ToString();
-                point.pointObject = instance;
-                pathpoints.Add(point);
-                navCoords.Add(new Vector2(navData[i].X, navData[i].Y));
-            }
-            gameObject.GetComponent<RouteBuilder>().BuildRoute(navCoords);
-        }
-        else
-            Debug.Log("Can't build route");
+        gameObject.GetComponent<VoronoiPathFinding>().mines = mines;
+        gameObject.GetComponent<VoronoiPathFinding>().startPoint = startCoords;
+        gameObject.GetComponent<VoronoiPathFinding>().StartPathfinding();
     }
 
     private void Update()

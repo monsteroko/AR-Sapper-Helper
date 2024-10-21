@@ -123,7 +123,7 @@ public class MapController : MonoBehaviour
             StartCoroutine(GetGPSPosition());
             player.SetActive(true);
             Vector2d Berlin = new Vector2d(52.51667, 13.38333);
-            _map.Initialize(Berlin, 7);
+            _map.Initialize(Berlin, 10);
             _map.gameObject.SetActive(true);
             MineInfo.SetActive(false);
             minespointsSpawn.DeleteAllminespoints();

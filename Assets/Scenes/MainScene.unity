@@ -1979,6 +1979,7 @@ GameObject:
   - component: {fileID: 357057803}
   - component: {fileID: 357057802}
   - component: {fileID: 357057804}
+  - component: {fileID: 357057805}
   m_Layer: 0
   m_Name: MapController
   m_TagString: Untagged
@@ -2090,6 +2091,21 @@ MonoBehaviour:
   _material: {fileID: 2100000, guid: 107ca5e7bb5e26f46b0ce09f5fc2e817, type: 2}
   UpdateFrequency: 1
   _spawnScale: 1
+--- !u!114 &357057805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357057798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e1d6159befa0be4084151252d10d252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fieldWidth: 0
+  fieldHeight: 0
+  cellSize: 50
 --- !u!1 &360074184
 GameObject:
   m_ObjectHideFlags: 0
